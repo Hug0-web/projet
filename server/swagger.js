@@ -5,12 +5,21 @@ const swaggerDefinition = {
       info: {
             title: 'MyContacts',
             version: '1.0.0'
-      }
+      },
+      components: {
+        securitySchemes: {
+        bearerAuth: {
+            type: 'http',
+            scheme: 'bearer',
+            bearerFormat: 'JWT'
+        }
+        }
+    }
     }
 
 const options = {
     swaggerDefinition,
-    apis: [],
+    apis: ['./Model/ModelSwagger.js', './Controller/ContactController.js', './Controller/UserController.js' ],
 }
 
 const docSwag = swaggerJSDoc(options);
