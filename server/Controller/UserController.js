@@ -61,6 +61,27 @@ router.get('/:id', authMiddleware, async (req, res) => {
 
 /**
  * @swagger
+ * /logout:
+ *   post:
+ *     summary: Déconnexion de l'utilisateur
+ *     description: Supprime le token et invalide la session côté client.
+ *     tags: [Users]                
+ *     responses:
+ *       200:
+ *         description: Déconnecté avec succès
+ *       401:
+ *         description: Token manquant ou invalide
+ */
+
+router.post('/logout', authMiddleware, async (req, res) => {
+
+    res.clearCookie('token'); 
+    return res.json({ message: 'Déconnecté avec succès' });
+
+});
+
+/**
+ * @swagger
  * /users/register:
  *   post:
  *     tags: [Users]  

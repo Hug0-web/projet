@@ -194,8 +194,12 @@ router.patch('/:userId/update/:contactId', authMiddleware, async (req, res) => {
 
     }
 
+    console.log('status', res.status);
     
     const updated = await ContactModel.findByIdAndUpdate(contactId, req.body, { new: true, runValidators: true });
+
+    console.log('updated', updated);
+            
 
     res.status(200).json(updated);
 

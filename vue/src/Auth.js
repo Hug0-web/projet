@@ -38,17 +38,8 @@ const [Password, setPassword] = useState('');
       <h2>{mode === 'login' ? 'Connexion' : 'Inscription'}</h2>
 
       <form onSubmit={handleSubmit}>
-        <input
-          placeholder="Email"
-          value={Email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          placeholder="Mot de passe"
-          type="password"
-          value={Password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <input placeholder="Email" value={Email} onChange={(e) => setEmail(e.target.value)} />
+        <input placeholder="Mot de passe" type="password" value={Password} onChange={(e) => setPassword(e.target.value)} />
         <button type="submit">
           {mode === 'login' ? 'Se connecter' : "S'inscrire"}
         </button>
